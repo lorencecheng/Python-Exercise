@@ -24,7 +24,7 @@ class Spider: #定义一个叫Spider的类
             account.send_keys("xxxxx")  #输入账户
             password=driver.find_element_by_xpath("//*[@id='TPL_password_1']")  #定位密码输入框
             password.send_keys("xxxxxx")  #输入密码
-            ''' 以下时尝试处理验证滑块，但失败
+            # 以下时尝试处理验证滑块，但失败
             while True:
                 try:
                 #定位滑块元素
@@ -50,7 +50,7 @@ class Spider: #定义一个叫Spider的类
                     print(e)
             time.sleep(3)  # 等待停顿时间
             driver.find_element_by_xpath("//*[@id='J_SubmitStatic']").click()  #定位并点击登录按钮
-            '''
+            
             time.sleep(30)
 
 chromedriver_path = "C:/Users/Lorence/AppData/Local/Programs/Python/Python36-32/Scripts/chromedriver.exe" 
@@ -58,7 +58,6 @@ option = webdriver.ChromeOptions()  #创建Chrome浏览器对象
 option.add_experimental_option('excludeSwitches', ['enable-automation'])  #设置开发者模式
 option.add_argument('--start-maximized') #最大化运行浏览器
 driver = webdriver.Chrome(executable_path=chromedriver_path, options=option)
-#driver = webdriver.Chrome(chrome_options=option) 
 spider = Spider("https://www.taobao.com")  
 spider.get_url()
 spider.login()
